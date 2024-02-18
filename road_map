@@ -1,0 +1,27 @@
+database.py
+1. установить asyncmy, pydantic_settings
+
+Миграции Alembic
+1. alembic init migration - инициализация
+2. файл env.py
+    target_metadata = Base.metadata
+    from database import Base, DATABASE_URL
+    добавляем базы:
+    from users.models import Users
+    перед from database import Base добавляем:
+    sys.path.insert(0, dirname(dirname(abspath(__file__))))
+    2 dirname - это уровни внутрь папки migration
+    к этой строке нужны библиотеки:
+    import sys
+    from os.path import abspath, dirname
+    после строки: config = context.config
+    добавляем: config.set_main_option('sqlalchemy.url', f'{DATABASE_URL}?async_fallback=True)')
+    т.к. у нас асинхронное подключение к базе
+    вводим команду для создания миграции:
+    alembic revision --autogenerate -m "Initial migration"
+    затем выполняе миграцию, head - все таблицы
+    alembic upgrade head
+
+Конфигурация программы
+1. Файл .env - данные, которые не видны открыто, config.py - связывается с этим файлом.
+И уже из него программа получает данные.
