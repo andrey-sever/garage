@@ -7,6 +7,7 @@ class Users(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(100), nullable=False)
+    email = Column(String(100), nullable=False)
     profession_id = Column(ForeignKey('professions.id'), nullable=False)
-    password = Column(String(256), nullable=False)
+    password = Column(String(60), nullable=False)
 
