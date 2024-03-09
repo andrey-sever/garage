@@ -16,6 +16,7 @@ from users.models import Users
 from cars.models import Cars
 from professions.models import Professions
 from journals.models import Journals
+from car_models.models import CarModels
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
