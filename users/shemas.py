@@ -11,3 +11,13 @@ class SUserRegister(BaseModel):
     class Config:
         # orm_mode = True
         from_attributes = True
+
+
+class SUserAuth(BaseModel):
+    # id:
+    email: EmailStr
+    password: str
+
+    class Config:
+        # orm_mode = True
+        from_attributes = True
