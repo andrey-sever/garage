@@ -1,9 +1,11 @@
 from pydantic import BaseModel, EmailStr
+from users.roles import UserRole
 
 
 class SUserRegister(BaseModel):
     # id:
     name: str
+    role: UserRole
     email: EmailStr
     profession_id: int
     password: str

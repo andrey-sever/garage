@@ -11,7 +11,7 @@ router = APIRouter(
 
 
 @router.get("")
-async def get_journals(user: Users = Depends(get_current_user)):
+async def get_journals(user: Users = Depends(get_current_user)) -> list[SJournals]:
     return await JournalDAO.find_all(id_user=user.id)
 
 
