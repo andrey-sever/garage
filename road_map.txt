@@ -21,6 +21,10 @@ database.py
     alembic revision --autogenerate -m "Initial migration"
     затем выполняе миграцию, head - все таблицы
     alembic upgrade head
+3. корректировка для Ubuntu:
+    Вместо asyncmy установить aiomysql. Изменить config.py
+    Установить пакеты: pip install pycryptodome,
+    вместо jose поставить pip install python-jose[cryptography]
 
 Конфигурация программы
 1. Файл .env - данные, которые не видны открыто, config.py - связывается с этим файлом.
